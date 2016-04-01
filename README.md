@@ -3,8 +3,10 @@ Dynamic Infrared Receiver, saving sendt signals and assigning them to actions.
 
 Supporting NEC protocol
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| Signal        | Bytes | Use  |
+| ------------- |:-----:| -----:|
+| Init          | 8     | - |
+| Address       | 8     | - |
+| Inverted Addr | 8     | - |
+| Command       | 8     | - |
+| Inverted Comm | 8     | - |
