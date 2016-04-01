@@ -65,7 +65,15 @@ Reset:	SER	    mpr			        ; Output:= LED
 
 
 ;*** Hauptprogramm ***	
-Main:		CLR		counter
+// Ablauf des Programms
+Main:		RCALL	Listener	//Endlosschleife, bis Signal empfangen wird
+			RCALL 	Display		//Stellt das Signal auf dem LCD Display dar
+			RCALL	Assign		//Weist das Signal einem womoeglich bereits existierenden Signal zu
+			RCALL	Execute		//Führt dem Signal zugewiesene Befehle aus (auf die LED Leiste)
+
+
+// Wartet auf ein Infrarot Signal
+Listener:	CLR		counter
 			IN		mpr, SWITCH	
 			
 			TST		mpr
@@ -101,6 +109,10 @@ Loop2:		INC		counter
 End:		RJMP	Main
 		
 ReadSignal:	RJMP	Main
+
+Display:	RJMP	Main
+
+Execute:	RJMP	Main
 
 
 
