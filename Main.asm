@@ -108,7 +108,64 @@ Loop2:		INC		counter
 
 End:		RJMP	Main
 		
-ReadSignal:	RJMP	Main
+;******************************************************************************
+; ReadSignal
+;******************************************************************************
+ReadSignal:
+		PUSH	mpr
+		PUSH	counter
+
+		LDI		counter, $1F
+		
+		IN		mpr, SWITCH
+		TST		mpr
+		BREQ	ERS
+		
+LRS_1:
+		IN		mpr, SWITCH
+		TST		mpr
+		BRNE	LRS_1
+		
+		// Wait 700us
+		
+		IN		mpr, SWITCH
+		TST		mpr
+		
+		BREQ	Signal0
+		
+		CLC
+		
+		RJMP	LRS_3
+		
+LRS_2:
+		SEC
+		// Wait 1200us
+		
+LRS_3:
+		ROL		invcomm
+		ROL		comm
+		ROL		invaddr
+		ROL		addr
+		
+		DEC		counter
+
+		TST		mpr
+		BRNE	LRS_1
+		
+		TST		counter
+		BREQ	ERS
+		
+		CLR		invcomm
+		CLR		comm
+		CLR		invaddr
+		CLR		addr
+
+		
+ERS:
+		POP 	counter
+		POP		mpr
+		
+		RET
 
 Display:	RJMP	Main
 
