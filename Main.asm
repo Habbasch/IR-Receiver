@@ -3,7 +3,7 @@
 ;*
 ;* Dateinname:		    .asm
 ;* Version:			    1.0
-;* Autor:			    Werner Odermatt
+;* Autor:			    Joel Grepper & Jan Leuenberger
 ;*
 ;* Verwendungszweck:	uP-Schulung
 ;*
@@ -13,7 +13,7 @@
 ;*
 ;* Entwicklungsablauf:
 ;* Ver: Datum:	Autor:   Entwicklungsschritt:                         Zeit:
-;* 1.0  01.01.13  WOd    Ganzes Programm erstellt				           Min.
+;* 1.0  01.01.13      Ganzes Programm erstellt				           Min.
 ;*
 ;*										Totalzeit:	 Min.
 ;*
