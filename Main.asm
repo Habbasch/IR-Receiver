@@ -79,7 +79,7 @@ Listener:	CLR		counter
 			TST		mpr
 			BREQ	End
 
-			RCALL	W100us
+			//RCALL	W100us
 			INC		counter
 
 Loop1:		IN		mpr, SWITCH
@@ -93,7 +93,7 @@ Loop1:		IN		mpr, SWITCH
 			CLR		counter
 
 Loop2:		INC		counter
-			RCALL	W100us
+			//RCALL	W100us
 			IN		mpr, SWITCH
 
 			TST		mpr
@@ -106,7 +106,13 @@ Loop2:		INC		counter
 
 			
 
-End:		RJMP	Main
+End:		RET
+
+;******************************************************************************
+; Assign
+;******************************************************************************
+Assign:		RET
+
 		
 ;******************************************************************************
 ; ReadSignal
@@ -131,7 +137,7 @@ LRS_1:
 		IN		mpr, SWITCH
 		TST		mpr
 		
-		BREQ	Signal0
+		BREQ	LRS_2
 		
 		CLC
 		
@@ -167,13 +173,15 @@ ERS:
 		
 		RET
 
-Display:	RJMP	Main
-
-Execute:	RJMP	Main
-
-
 
 ;******************************************************************************
-; Unterprogramme
+; Execute
 ;******************************************************************************
 
+Execute:RET
+
+;******************************************************************************
+; Display
+;******************************************************************************
+
+Display: RET
